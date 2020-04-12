@@ -23,7 +23,7 @@ router.get("/notes", function(request, response) {
 // /api/notes/:id
 
 router.post("/notes", function(request, response) {
-  db.push(request.body);
+  db.push(store(request.body));
   response.json(true);
   const data = JSON.stringify(db);
   writeDb();
@@ -50,7 +50,7 @@ router.delete("/notes/:id", function(request, response) {
 
 function writeDb() {
   const data = JSON.stringify(db,null,"\t")
-  fs.writeFile(path.join(__dirname, "../db/db.json"), data, err => {if (err) throw err});
+  fs.writeFile(path.join(__dirname, "../db/db.json"), function(data, error) {if (err) throw error});
   }
 module.exports = router;
 

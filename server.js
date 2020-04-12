@@ -2,7 +2,7 @@
 // see 14-FinalStarwarsApp/server-template.js
 // plus require routes 
 const express = require("express");
-const path = require("path");
+
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
 const bodyParser= require("body-parser");
