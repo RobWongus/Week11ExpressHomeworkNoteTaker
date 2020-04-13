@@ -40,17 +40,15 @@ router.delete("/notes/:id", function(request, response) {
   db = db.filter(element => element.id != request.params.id);
   response.json(true);
   writeDb();
-  //let id = request.params.id;
-  // store =js file has a removeNote(id)
-  // store.removeNote(id) this will open up data file 
-  //iterate over the notes if note.id
+ 
   //if note.id = id then delete that note
   //response.json({"id": id}) 
 })
 
+//should delete
 function writeDb() {
   const data = JSON.stringify(db,null,"\t")
-  fs.writeFile(path.join(__dirname, "../db/db.json"), function(data, error) {if (err) throw error});
+  fs.writeFile(path.join(__dirname, "../db/db.json"), function(data, error) {if (error) throw error});
   }
 module.exports = router;
 
